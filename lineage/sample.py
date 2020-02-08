@@ -10,9 +10,9 @@ sys.path.insert(0, "..")
 from manager import LineageManager
 
 lm = LineageManager()
-lm.new_experiment()
+lm.new_set()
 
-X, Y = make_classification(400, 20, n_classes=2)
+X, Y = make_classification(4000, 20, n_classes=2)
 
 clf = RandomForestClassifier()
 Xtrain, Xtest, Ytrain, Ytest = train_test_split(X, Y, test_size=0.33)
@@ -26,3 +26,4 @@ lm.register_experiment_factors(data=(X, Y),
                                model=clf,
                                results=clf_report,
                                releasenotes="##Version\nv0.0.1")
+print(lm._get_registry_size())

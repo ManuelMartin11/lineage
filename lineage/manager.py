@@ -1,6 +1,7 @@
 import re
 import pickle
 import joblib
+import os
 from pathlib import Path
 
 
@@ -170,3 +171,13 @@ class LineageManager:
 
         for factor in factors.keys():
             self.write_factor_unit(set_id, exp_id, factor, factors[factor])
+
+    def _get_registry_size(self):
+        sizes = []
+        for exp_set in self.project_path.iterdir():
+            for exp in exp_set.iterdir():
+                for factor in exp.iterdir():
+                    for file in factor.iterdir():
+                        sizes.append(os.path.getsize(file))
+        total_size = round(sum(sizes)/1000000, 2)
+        return total_size

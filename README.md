@@ -35,6 +35,34 @@ rln = exp.draft_release_note()
 exp.register(model=clf, data=(X,Y), exploration="eda.ipynb", releasenotes=rln, results=clf_report)
 ```
 
+Sample of a release note (`releasenotes.md`):
+
+# Experiment Release Note
+02/08/20 13:23
+
+### Experiment Name
+>Test
+
+### Experiment Description
+>Test Description
+
+### Model Version
+>0.0.1
+
+### Code Commit
+>938fe15be7528c41cf45a03e66dd7b246c85205b
+
+### Code Branch
+>develop
+
+### Data Version
+>1.2.2
+
+### Hyperparameters
+> depth = 100
+
+<br></br>
+<br></br>
 After executing the code before, you will see a new `.lineage` directory with the following structure:
 ```
 ├── .lineage

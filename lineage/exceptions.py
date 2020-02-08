@@ -1,0 +1,4 @@
+
+
+class SourcePathNotExists(Exception):
+    pass

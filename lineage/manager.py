@@ -1,12 +1,10 @@
 import re
+import os
 import pickle
 import joblib
-import os
+import warnings
 from pathlib import Path
-
-
-class SourcePathNotExists(Exception):
-    pass
+from lineage.exceptions import SourcePathNotExists
 
 
 class LineageManager:
@@ -74,11 +72,13 @@ class LineageManager:
 
     def new_set(self):
         """Create New Experiment Set"""
+        self._is_size_excessive()
         last_set = self.get_latest_set()
         self._create_set(last_set + 1, 1)
 
     def new_experiment(self):
         """Create New Experiment"""
+        self._is_size_excessive()
         latest_set = self.get_latest_set()
         if latest_set != -1:  # Create experiment only if there is a set
             latest_experiment = self.get_latest_experiment(latest_set)
@@ -181,3 +181,8 @@ class LineageManager:
                         sizes.append(os.path.getsize(file))
         total_size = round(sum(sizes)/1000000, 2)
         return total_size
+
+    def _is_size_excessive(self):
+        size = self._get_registry_size()
+        if size > 100:
+            warnings.warn(f"Registry size is {size}MB")

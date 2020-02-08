@@ -65,4 +65,4 @@ As you progress on your experiments or experiments sets you will have a registry
 │    │    └──experiment_2
 ```
 
-By using this formal structure, you will be able to compare experiments within set and select the model that better fits your problem.
+By using this formal structure, you will be able to compare experiments within sets and select the model that better fits your problem.

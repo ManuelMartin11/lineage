@@ -41,10 +41,10 @@ Sample of a release note (`releasenotes.md`):
 02/08/20 13:23
 
 ### Experiment Name
->Test
+>Random Forest for Text Classification
 
 ### Experiment Description
->Test Description
+>Use Random Forest Algorithm for Financial Text Classification
 
 ### Model Version
 >0.0.1
@@ -56,7 +56,7 @@ Sample of a release note (`releasenotes.md`):
 >develop
 
 ### Data Version
->1.2.2
+>0.0.1
 
 ### Hyperparameters
 > depth = 100
